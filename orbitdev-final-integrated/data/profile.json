@@ -1,0 +1,162 @@
+{
+  "_comment": "Твои данные. Всё, что начинается с YOUR_ — заполни. Поля с en/ru отдают двуязычный сайт из одного файла.",
+  "name": "Vadik",
+  "handle": "VadikPlay",
+  "role": {
+    "en": "Telegram bots & payment automation",
+    "ru": "Telegram-боты и платёжная автоматизация"
+  },
+  "tagline": {
+    "en": "I build Telegram bots that take crypto payments and manage access — non-custodial, tested, handed over with the source.",
+    "ru": "Делаю Telegram-ботов, которые принимают крипту и управляют доступом — без кастодиальности, с тестами, с передачей исходников."
+  },
+  "intro": {
+    "en": "Python developer working on the part of Telegram that touches money: paid channels, subscription access, on-chain payment verification, and the automation around them. Everything I ship is deployed on the client's own server with the source handed over — the kill switch stays with you, not with me.",
+    "ru": "Python-разработчик. Работаю с той частью Telegram, где ходят деньги: платные каналы, доступ по подписке, проверка платежей в блокчейне и автоматизация вокруг этого. Всё, что делаю, разворачивается на сервере клиента с передачей исходников — рубильник остаётся у вас, а не у меня."
+  },
+  "available": true,
+  "availability_note": {
+    "en": "Available for new work",
+    "ru": "Открыт для новых заказов"
+  },
+  "working_style": [
+    {
+      "en": "Async by default — written updates, no calls required",
+      "ru": "Async по умолчанию — апдейты текстом, созвоны не нужны"
+    },
+    {
+      "en": "Fixed price agreed before work starts, no hourly surprises",
+      "ru": "Фикс-цена согласуется до старта, без сюрпризов по часам"
+    },
+    {
+      "en": "Escrow welcome, or 100% prepayment for direct deals",
+      "ru": "Работаю через безопасную сделку или по 100% предоплате напрямую"
+    },
+    {
+      "en": "Deployed on your infrastructure, full source handed over",
+      "ru": "Разворачиваю на вашей инфраструктуре, исходники передаю полностью"
+    },
+    {
+      "en": "Tests included — you get proof it works, not a promise",
+      "ru": "Тесты в комплекте — вы получаете доказательство работы, а не обещание"
+    }
+  ],
+  "services": [
+    {
+      "title": {
+        "en": "Paid-access bot for a Telegram channel",
+        "ru": "Бот платного доступа в Telegram-канал"
+      },
+      "desc": {
+        "en": "Crypto payment straight to your wallet, automatic invite links, subscription tracking, renewal reminders, removal of lapsed members, admin panel with stats and CSV export.",
+        "ru": "Оплата криптой напрямую на ваш кошелёк, автоматические инвайт-ссылки, учёт подписок, напоминания о продлении, снятие доступа у неплательщиков, админка со статистикой и выгрузкой в CSV."
+      },
+      "price": "$250–450",
+      "eta": {
+        "en": "3–5 days",
+        "ru": "3–5 дней"
+      }
+    },
+    {
+      "title": {
+        "en": "Custom bot or automation",
+        "ru": "Кастомный бот или автоматизация"
+      },
+      "desc": {
+        "en": "Your own monetisation logic: trials, discounts, referral programmes, tiered access, several channels in one bot, integrations with CRM or Google Sheets.",
+        "ru": "Своя логика монетизации: триалы, скидки, реферальные программы, уровни доступа, несколько каналов в одном боте, интеграции с CRM или Google Sheets."
+      },
+      "price": "$500–800",
+      "eta": {
+        "en": "1–3 weeks",
+        "ru": "1–3 недели"
+      }
+    },
+    {
+      "title": {
+        "en": "Data collection & monitoring",
+        "ru": "Сбор данных и мониторинг"
+      },
+      "desc": {
+        "en": "Parsers for web and Telegram, scheduled monitoring with alerts into Telegram, Slack, email or a spreadsheet. Public data only.",
+        "ru": "Парсеры для веба и Telegram, мониторинг по расписанию с алертами в Telegram, Slack, на почту или в таблицу. Только публичные данные."
+      },
+      "price": "$150–500",
+      "eta": {
+        "en": "2–7 days",
+        "ru": "2–7 дней"
+      }
+    },
+    {
+      "title": {
+        "en": "Migration to self-hosted",
+        "ru": "Переезд на свой сервер"
+      },
+      "desc": {
+        "en": "Moving off a hosted subscription platform: your data exported, your bot on your server, your wallet, no percentage of revenue to anyone.",
+        "ru": "Уход с платной платформы подписок: данные экспортированы, бот на вашем сервере, кошелёк ваш, процент с выручки больше никому не уходит."
+      },
+      "price": "$300–600",
+      "eta": {
+        "en": "3–7 days",
+        "ru": "3–7 дней"
+      }
+    }
+  ],
+  "stack": [
+    "Python 3.11+",
+    "aiogram 3",
+    "asyncio",
+    "SQLAlchemy 2",
+    "SQLite / PostgreSQL",
+    "httpx",
+    "pytest",
+    "Docker",
+    "Linux / VPS",
+    "nginx",
+    "systemd",
+    "TRON / TronGrid",
+    "TON",
+    "n8n",
+    "Web & Telegram parsing",
+    "REST API integration"
+  ],
+  "contacts": {
+    "telegram": "EuNekto",
+    "email": "vinnipug87@gmail.com",
+    "github": "VadikPlay"
+  },
+  "payments": {
+    "en": [
+      "USDT (TRC20)",
+      "Wise",
+      "Payoneer",
+      "Bank card (MD)",
+      "Platform escrow"
+    ],
+    "ru": [
+      "USDT (TRC20)",
+      "Wise",
+      "Payoneer",
+      "Карта (MD)",
+      "Безопасная сделка на платформе"
+    ]
+  },
+  "site": {
+    "_comment": "url — финальный адрес сайта. Нужен для sitemap и og-тегов. Без слеша на конце.",
+    "url": "https://VadikPlay.github.io",
+    "og_image": ""
+  },
+  "presentation": {
+    "en": {
+      "hero_kicker": "AUTOMATION THAT WORKS",
+      "hero_title": "I build Telegram bots and automation tools.",
+      "hero_lead": "Turn your idea into a working system with clean code, clear communication and a fixed price before development starts."
+    },
+    "ru": {
+      "hero_kicker": "АВТОМАТИЗАЦИЯ, КОТОРАЯ РАБОТАЕТ",
+      "hero_title": "Создаю Telegram-ботов и инструменты автоматизации.",
+      "hero_lead": "Превращаю идею в рабочую систему с чистым кодом, понятной коммуникацией и фиксированной ценой до начала разработки."
+    }
+  }
+}

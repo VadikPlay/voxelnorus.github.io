@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://VadikPlay.github.io/sitemap.xml

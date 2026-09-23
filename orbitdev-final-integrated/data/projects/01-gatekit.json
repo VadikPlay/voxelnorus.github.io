@@ -1,0 +1,154 @@
+{
+  "_comment": "Кейс. Имя файла начинается с числа — по нему идёт сортировка на странице. 01 = первый в списке.",
+
+  "slug": "gatekit",
+  "title": "Gatekit",
+  "subtitle": {
+    "en": "Telegram paid-subscription bot with direct USDT payments",
+    "ru": "Бот платных подписок в Telegram с прямой оплатой в USDT"
+  },
+  "year": "2026",
+  "kind": {
+    "en": "Open source · MIT",
+    "ru": "Открытый код · MIT"
+  },
+  "featured": true,
+
+  "tags": ["Python", "aiogram 3", "USDT TRC20", "TON", "SQLAlchemy", "Docker", "pytest"],
+
+  "summary": {
+    "en": "A self-hosted bot that sells access to a private Telegram channel and takes payment straight into the owner's own wallet. Non-custodial: it holds no private keys and never moves funds — it only reads the public chain to learn that a payment landed.",
+    "ru": "Self-hosted бот, который продаёт доступ в закрытый Telegram-канал и принимает оплату напрямую на кошелёк владельца. Non-custodial: приватных ключей не хранит и деньгами не распоряжается — только читает блокчейн, чтобы узнать о поступлении."
+  },
+
+  "problem": {
+    "en": "Owners of paid Telegram channels either give a percentage to a hosted platform, or run the money side by hand: checking a wallet for incoming transfers, matching them to usernames, adding members manually, keeping a spreadsheet of expiry dates, and remembering to remove people who stopped paying. At 50 payments a month that is a part-time job; at 200 it is a full-time one.",
+    "ru": "Владелец платного Telegram-канала либо отдаёт процент платформе, либо ведёт деньги руками: смотрит поступления в кошельке, сопоставляет их с юзернеймами, добавляет людей вручную, держит таблицу со сроками и не забывает выгонять тех, кто перестал платить. На 50 платежах в месяц это подработка, на 200 — полноценная работа."
+  },
+
+  "approach": [
+    {
+      "title": {
+        "en": "The problem with no memo field",
+        "ru": "Проблема отсутствующего memo"
+      },
+      "body": {
+        "en": "A TRC20 transfer carries no comment field, so if two subscribers each send 39.00 USDT to the same wallet, the chain cannot tell you who is who. Custodial services solve this by holding the money in their own account. Gatekit solves it with arithmetic: every invoice gets a unique amount — 39.00 becomes 39.004271, where the last digits identify the invoice. Under one cent of variance, 9999 unique slots, and no custody.",
+        "ru": "У TRC20-перевода нет поля комментария: если два подписчика отправят по 39.00 USDT на один кошелёк, блокчейн не скажет, кто из них кто. Кастодиальные сервисы решают это тем, что держат деньги у себя. Здесь решение арифметическое: каждый счёт получает уникальную сумму — 39.00 превращается в 39.004271, где последние цифры и есть идентификатор счёта. Разброс меньше цента, 9999 уникальных слотов, и никакой кастодиальности."
+      }
+    },
+    {
+      "title": {
+        "en": "Refusing to guess",
+        "ru": "Отказ от угадывания"
+      },
+      "body": {
+        "en": "Matching is exact: a rounded 39.00 does not satisfy an invoice for 39.004271. It is never auto-credited — it surfaces in the admin panel with the sender address and transaction id, and a human decides. A transaction id can only ever be credited once, so a re-read chain page cannot grant two subscriptions.",
+        "ru": "Сопоставление строго точное: округлённые 39.00 не закрывают счёт на 39.004271. Такой платёж никогда не зачисляется автоматически — он попадает в админку с адресом отправителя и хешем транзакции, и решение принимает человек. Один хеш транзакции может быть зачтён только один раз, поэтому повторное чтение страницы блокчейна не выдаст вторую подписку."
+      }
+    },
+    {
+      "title": {
+        "en": "Five guards before anyone loses access",
+        "ru": "Пять барьеров перед снятием доступа"
+      },
+      "body": {
+        "en": "One wrongly removed subscriber costs more than a year of saved fees — the chat sees it and people churn. So removal is not an 'if expired then kick' branch. A safe mode that removes nobody and only reports is on by default; there is a grace period after expiry; anyone who paid inside the protection window is never removed whatever the dates say; every action is idempotent so restarts cannot double-act; and an optional mode makes an admin confirm each removal. Every decision — including refusals to remove — is written to an append-only audit log.",
+        "ru": "Один ошибочно выгнанный подписчик стоит дороже годовой экономии на комиссии: чат это видит, люди отваливаются. Поэтому удаление — не ветка «истёк, значит кик». По умолчанию включён safe mode, который никого не удаляет и только сообщает; после истечения есть льготный период; тот, кто заплатил в защитном окне, не удаляется, что бы ни говорили даты; все операции идемпотентны, поэтому перезапуск не сработает дважды; и есть режим, где каждое удаление подтверждает админ. Каждое решение, включая отказ удалять, пишется в неизменяемый аудит-лог."
+      }
+    },
+    {
+      "title": {
+        "en": "A bug only a live call could find",
+        "ru": "Баг, который находится только живым вызовом"
+      },
+      "body": {
+        "en": "Testing against the real TronGrid API exposed something the documentation does not mention: without an API key the quota is about one request per second, and exceeding it returns HTTP 200 with an 'Error' field rather than a 429. Parsed naively that looks like 'no incoming transfers' — meaning the bot would silently miss payments. The client now throttles itself, treats that response as a retryable failure, and raises rather than reporting an empty result, so a rate limit can never be mistaken for nobody having paid. There is a regression test for it.",
+        "ru": "Проверка против живого API TronGrid вскрыла то, чего нет в документации: без API-ключа лимит примерно один запрос в секунду, а при превышении возвращается HTTP 200 с полем Error вместо 429. При наивном разборе это выглядит как «переводов нет» — то есть бот молча терял бы платежи. Теперь клиент сам себя throttle'ит, считает такой ответ ошибкой с повтором и падает в лог вместо пустого результата, так что лимит запросов невозможно принять за «никто не заплатил». На это есть регрессионный тест."
+      }
+    }
+  ],
+
+  "proof": [
+    {
+      "value": "53",
+      "label": {
+        "en": "unit tests",
+        "ru": "юнит-тестов"
+      }
+    },
+    {
+      "value": "56",
+      "label": {
+        "en": "end-to-end checks",
+        "ru": "сквозных проверок"
+      }
+    },
+    {
+      "value": "5 035",
+      "label": {
+        "en": "lines of Python",
+        "ru": "строк Python"
+      }
+    },
+    {
+      "value": "0",
+      "label": {
+        "en": "private keys stored",
+        "ru": "приватных ключей в хранении"
+      }
+    }
+  ],
+
+  "proof_note": {
+    "en": "The matching engine and the access rules are written as pure functions — no database, no network, no clock inside them — which is why they can be tested exhaustively. A self-test script walks the entire money path (invoice → on-chain payment → access → reminder → expiry → removal) against a fake chain and a fake Telegram, so anyone can verify the behaviour without a bot token, a channel or a single dollar.",
+    "ru": "Движок сопоставления платежей и правила доступа написаны как чистые функции — без базы, сети и часов внутри — поэтому их можно покрыть исчерпывающе. Отдельный скрипт прогоняет весь путь денег (счёт → платёж в блокчейне → доступ → напоминание → истечение → снятие) против фейкового блокчейна и фейкового Telegram, так что поведение может проверить любой — без токена бота, без канала и без единого доллара."
+  },
+
+  "delivers": [
+    {
+      "en": "Subscriber flow: plans, invoice with the exact amount, automatic confirmation, single-use invite link",
+      "ru": "Сценарий подписчика: тарифы, счёт с точной суммой, автоподтверждение, одноразовая инвайт-ссылка"
+    },
+    {
+      "en": "Renewal reminders 3 days and 1 day before expiry; early renewal stacks days instead of resetting them",
+      "ru": "Напоминания о продлении за 3 дня и за 1 день; продление заранее добавляет дни, а не обнуляет их"
+    },
+    {
+      "en": "Admin panel inside the bot: revenue, subscribers, who is lapsing, CSV export, manual grant/extend/revoke, broadcast, per-user audit trail",
+      "ru": "Админка внутри бота: выручка, подписчики, кто истекает, выгрузка в CSV, ручная выдача/продление/отзыв, рассылка, аудит по конкретному человеку"
+    },
+    {
+      "en": "USDT on TRON as the production rail, TON as a second one matched by payment comment",
+      "ru": "USDT на TRON как основной рельс, TON как второй с матчингом по комментарию к платежу"
+    },
+    {
+      "en": "Bilingual interface (English and Russian), one-command Docker deploy, systemd unit included",
+      "ru": "Двуязычный интерфейс (английский и русский), установка одной командой через Docker, systemd-юнит в комплекте"
+    }
+  ],
+
+  "links": [
+    {
+      "label": {
+        "en": "Source on GitHub",
+        "ru": "Исходники на GitHub"
+      },
+      "url": "https://github.com/YOUR_GITHUB_USERNAME/telegram-usdt-subscription-bot",
+      "primary": true
+    },
+    {
+      "label": {
+        "en": "Live demo bot",
+        "ru": "Живой демо-бот"
+      },
+      "url": "https://t.me/YOUR_DEMO_BOT",
+      "primary": false
+    }
+  ],
+
+  "honesty": {
+    "en": "Gatekit is not always the right tool, and its README says so: Telegram's own Star Subscriptions are free and native, and hosted platforms start at a few percent per sale. Self-hosting is worth it when your subscribers already hold USDT, you want the money in your own wallet with no cut and no hold period, or you need logic a hosted product will not build for you.",
+    "ru": "Gatekit — не всегда правильный инструмент, и в README так и написано: у Telegram есть бесплатные нативные Star-подписки, а готовые платформы берут несколько процентов с продажи. Self-hosted вариант оправдан, когда ваши подписчики уже держат USDT, когда деньги нужны на своём кошельке без процента и без периода удержания, или когда нужна логика, которую готовый продукт не сделает."
+  }
+}

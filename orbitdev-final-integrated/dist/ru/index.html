@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="OrbitDev — Telegram-боты, автоматизация платежей, сбор данных и self-hosted решения.">
+<title>OrbitDev — Telegram-боты и автоматизация</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+
+</head>
+<body><header class="site-header">
+  <div class="container nav">
+    <a class="brand" href="../index.html" aria-label="OrbitDev home">OrbitDev</a>
+    <nav class="nav-links" aria-label="Primary navigation">
+      <a href="../index.html#work">Работы</a>
+      <a href="../index.html#services">Услуги</a>
+      <a href="../index.html#how">Как работаю</a>
+      <a href="../index.html#faq">FAQ</a>
+    </nav>
+    <div class="nav-actions">
+      <a class="lang" href="../../index.html">EN</a>
+      <a class="button button-dark button-small" href="../index.html#contact">Связаться <span>→</span></a>
+    </div>
+  </div>
+</header><main id="top">
+<section class="hero"><div class="container hero-grid">
+<div class="hero-copy">
+<div class="eyebrow"><span></span> АВТОМАТИЗАЦИЯ, КОТОРАЯ РАБОТАЕТ</div>
+<h1>Создаю <em>Telegram-ботов</em> и инструменты автоматизации.</h1>
+<p class="lead">Превращаю идею в рабочую систему с чистым кодом, понятной коммуникацией и фиксированной ценой до начала разработки.</p>
+<div class="hero-actions"><a class="button button-dark" href="https://t.me/EuNekto">Get in touch <span>→</span></a><a class="button button-light" href="#work">View work <span>↘</span></a></div>
+<div class="hero-proof"><div><b>Фиксированная цена</b><span>До разработки</span></div><div><b>Исходники в комплекте</b><span>Полная передача</span></div><div><b>Созвоны не обязательны</b><span>Обновления текстом</span></div></div>
+</div>
+<div class="code-window"><div class="codebar"><div class="dots"><i></i><i></i><i></i></div><span>bot.py</span><small>Ready to deploy</small></div>
+<pre><code><span class="blue">from</span> aiogram <span class="blue">import</span> Bot, Dispatcher
+<span class="blue">import</span> asyncio
+
+bot = Bot(token=<span class="green">"YOUR_TOKEN"</span>)
+dp = Dispatcher()
+
+<span class="violet">@dp.message()</span>
+<span class="blue">async def</span> <span class="white">start</span>(message):
+    <span class="blue">await</span> message.answer(<span class="green">"Automation works"</span>)
+
+asyncio.run(dp.start_polling(bot))</code></pre><div class="code-glow"></div></div>
+</div></section>
+
+<section class="section services" id="services"><div class="container"><div class="section-top"><div><div class="section-kicker">УСЛУГИ</div><h2>Что делаю.</h2></div><p>Четыре направления. Выберите то, что подходит под задачу.</p></div><div class="service-grid"><article class="service-card">
+  <div class="service-index">01</div>
+  <h3>Бот платного доступа в Telegram-канал</h3>
+  <div class="price">$250–450</div>
+  <p>Оплата криптой напрямую на ваш кошелёк, автоматические инвайт-ссылки, учёт подписок, напоминания о продлении, снятие доступа у неплательщиков, админка со статистикой и выгрузкой в CSV.</p>
+  <div class="service-meta"><span>Обычный срок: <b>3–5 дней</b></span><span>Source code included</span></div>
+  <a class="card-link" href="https://t.me/EuNekto">Начать <span>→</span></a>
+</article><article class="service-card feature">
+  <div class="service-index">02</div>
+  <h3>Кастомный бот или автоматизация</h3>
+  <div class="price">$500–800</div>
+  <p>Своя логика монетизации: триалы, скидки, реферальные программы, уровни доступа, несколько каналов в одном боте, интеграции с CRM или Google Sheets.</p>
+  <div class="service-meta"><span>Обычный срок: <b>1–3 недели</b></span><span>Source code included</span></div>
+  <a class="card-link" href="https://t.me/EuNekto">Обсудить проект <span>→</span></a>
+</article><article class="service-card">
+  <div class="service-index">03</div>
+  <h3>Сбор данных и мониторинг</h3>
+  <div class="price">$150–500</div>
+  <p>Парсеры для веба и Telegram, мониторинг по расписанию с алертами в Telegram, Slack, на почту или в таблицу. Только публичные данные.</p>
+  <div class="service-meta"><span>Обычный срок: <b>2–7 дней</b></span><span>Source code included</span></div>
+  <a class="card-link" href="https://t.me/EuNekto">Начать <span>→</span></a>
+</article><article class="service-card">
+  <div class="service-index">04</div>
+  <h3>Переезд на свой сервер</h3>
+  <div class="price">$300–600</div>
+  <p>Уход с платной платформы подписок: данные экспортированы, бот на вашем сервере, кошелёк ваш, процент с выручки больше никому не уходит.</p>
+  <div class="service-meta"><span>Обычный срок: <b>3–7 дней</b></span><span>Source code included</span></div>
+  <a class="card-link" href="https://t.me/EuNekto">Начать <span>→</span></a>
+</article></div></div></section>
+
+<section class="section work" id="work"><div class="container"><div class="section-top"><div><div class="section-kicker">РАБОТЫ</div><h2>Реальные проекты, реальные детали.</h2></div><a class="text-link" href="#contact">Все работы →</a></div>
+<div class="work-grid"><article class="case-card"><div class="case-head"><span>01</span><span>2026 · Открытый код · MIT</span></div><h3>Gatekit</h3><p>Self-hosted бот, который продаёт доступ в закрытый Telegram-канал и принимает оплату напрямую на кошелёк владельца. Non-custodial: приватных ключей не хранит и деньгами не распоряжается — только читает блокчейн, чтобы узнать о поступлении.</p><div class="case-stats"><div><b>53</b><span>юнит-тестов</span></div><div><b>56</b><span>сквозных проверок</span></div><div><b>5 035</b><span>строк Python</span></div></div><a class="text-link" href="../p/gatekit.html">Открыть кейс / обсудить похожий →</a></article><article class="case-card dark-card"><div class="case-head"><span>STACK</span><span>Telegram · Python · payments</span></div><div class="terminal-mini"><div><span>$</span> python bot.py</div><div><span>✓</span> payments verified</div><div><span>✓</span> access updated</div><div><span>✓</span> logs written</div></div><p>Clean implementation, testing and handover are part of the delivery rather than an extra.</p></article></div></div></section>
+<section class="section how" id="how"><div class="container"><div class="section-top"><div><div class="section-kicker">КАК РАБОТАЮ</div><h2>Просто с первого сообщения.</h2></div><p>Без лишних созвонов и неизвестности о следующем шаге.</p></div><div class="steps">
+<div class="step"><b>01</b><h3>Опишите задачу</h3><p>Расскажите, что должно происходить и какой результат нужен.</p></div>
+<div class="step"><b>02</b><h3>Цена + срок</h3><p>Фиксирую объём и даю фиксированную оценку до разработки.</p></div>
+<div class="step"><b>03</b><h3>Разработка и тесты</h3><p>Собираю систему, тестирую основной сценарий и пишу обновления.</p></div>
+<div class="step"><b>04</b><h3>Передача</h3><p>Готовая система, исходники и всё нужное для запуска.</p></div>
+</div></div></section>
+
+<section class="section faq" id="faq"><div class="container faq-grid"><div><div class="section-kicker">FAQ</div><h2>Вопросы, которые обычно задают клиенты.</h2></div><div class="faq-list"><details><summary>Передадите исходный код?</summary><p>Да. Исходный код входит в перечисленные услуги, если отдельно не согласовано иное.</p></details><details><summary>Можно доработать существующего бота?</summary><p>Да. Сначала проверю текущий код и точно зафиксируем, что нужно изменить.</p></details><details><summary>Нужен ли созвон?</summary><p>Нет. Задачу можно согласовать и вести проект асинхронно в переписке.</p></details><details><summary>Где разворачивается система?</summary><p>Для self-hosted задач разворачиваю систему на вашей инфраструктуре и передаю исходники.</p></details></div></div></section>
+<section class="cta-section" id="contact"><div class="container cta"><div><div class="section-kicker">НАЧАТЬ ПРОЕКТ</div><h2>Есть задача?</h2><p>Опишите идею — я превращу её в понятный объём, цену и срок.</p></div><div class="cta-actions"><a class="button button-white" href="https://t.me/EuNekto">Telegram <span>→</span></a><a class="button button-outline" href="mailto:vinnipug87@gmail.com">Email <span>→</span></a></div></div></section></main><footer class="footer"><div class="container footer-inner"><div><strong>OrbitDev</strong><span>Custom automation & web systems.</span></div><div class="footer-links"><a href="https://t.me/EuNekto">Telegram</a> <a href="mailto:vinnipug87@gmail.com">vinnipug87@gmail.com</a> <a href="https://github.com/VadikPlay">GitHub</a></div></div></footer>
+</body></html>
