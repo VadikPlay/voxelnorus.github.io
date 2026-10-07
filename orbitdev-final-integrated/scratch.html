@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    width: 800px;
+    border: 2px solid red;
+}
+.service-card {
+    border: 1px solid blue;
+    padding: 20px;
+}
+.service-card:nth-child(2) {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+</style>
+</head>
+<body>
+<div class="service-grid">
+  <article class="service-card">1</article>
+  <article class="service-card">2</article>
+  <article class="service-card">3</article>
+  <article class="service-card">4</article>
+</div>
+</body>
+</html>
