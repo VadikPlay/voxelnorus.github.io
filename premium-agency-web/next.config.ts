@@ -5,8 +5,6 @@ const nextConfig: NextConfig = {
   basePath: "/voxelnorus.github.io",
   images: { unoptimized: true },
   /* config options here */
-  cacheComponents: true,
-  partialPrefetching: true,
   turbopack: {
     rules: {
       "*.css": {
