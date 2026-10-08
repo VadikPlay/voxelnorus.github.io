@@ -1,0 +1,8 @@
+{
+  "name": "OrbitDev",
+  "description": "Автономная инфраструктура монетизации закрытых Telegram-каналов: прямые крипто-платежи, база данных PostgreSQL и 0% комиссии.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
