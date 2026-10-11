@@ -1,0 +1,37 @@
+# Databases & Secrets
+*.db
+*.sqlite
+*.sqlite3
+.env
+.env.*
+!*.env.example
+
+# Python cache & temp
+__pycache__/
+*.py[cod]
+*$py.class
+*.log
+
+# Internal tools & non-public scripts
+ai_chat.py
+test_api.py
+scan.py
+OrbitDev_Bot_Ready.py
+
+# Sub-projects and internal code
+subscription_bot/
+saas_bot_review/
+telegram_lead_scraper/
+tgstat_parser/
+tender_radar/
+tests_radar/
+harvester/
+telegram-usdt-subscription-bot/
+Orbit Site Dev/
+premium-agency-web/
+orbitdev-final-integrated/
+.agents/
+
+# Generated deliverables
+hot_tenders_today.*
+TEST_READY.md
