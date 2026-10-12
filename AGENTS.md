@@ -25,17 +25,30 @@
 
 ---
 
-## 3. Operational Strategy & Business Model
-- **Role of Gatekit:** Gatekit is NOT a boxed retail product to sell cold to channel admins. It is Vadim's **proprietary speed engine (Boilerplate)** and **Hard Proof of Competence**. While competitors build bots in 5-7 days for $250, Vadim builds turnkey custom bots in 24-48 hours for $140-$180 (2,500 - 3,200 MDL) using pre-tested modules.
-- **Top Inbound Channel:** [999.md](https://999.md) (Moldova's #1 marketplace). Local businesses (salons, auto repair, food delivery, Instagram stores) need appointment booking, order taking, and lead bots. Web agencies charge €400–€600; Vadim offers 2,500 – 3,500 MDL.
-- **Top B2B Channel:** Subcontracting for digital/SMM/web agencies in Chisinau (overflow work at 2,000 – 3,000 MDL per bot).
-- **Fallback Skill (12-24h cycle):** Fast Python web scraping / data extraction (Playwright, BeautifulSoup, Pandas) for marketers & sellers ($50–$80 per gig).
+## 3. Operational Strategy & Business Model (70/30 Hybrid Vector)
+- **Primary Attack Vector (70% Focus):** Direct B2B subcontracting for digital/SMM/web agencies in Chisinau and region (turnkey Telegram bots at 2,000 – 2,500 MDL, integrations at 800 – 1,200 MDL, 24–48h delivery).
+- **Secondary Fast-Cash Vector (30% Focus):** Python web scraping / data extraction (Playwright, BeautifulSoup, Pandas) for marketers & sellers (800 – 1,500 MDL / $45–$85 per task, 12–24h cycle, instant delivery).
+- **Passive Background Channel:** [999.md](https://999.md) passive ad listing (kept only as a zero-maintenance inbound hook, NOT as primary reliance).
+- **Role of Gatekit:** Gatekit is Vadim's **speed boilerplate** and **hard proof of competence** (Python 3.11, aiogram 3, 53 pytest unit tests).
 - **Deal Iron Rule:** **50% prepayment via MIA Instant BEFORE coding starts.** 50% upon demo on test server.
 
 ---
 
-## 4. Communication & Agent Personality Rules
+## 4. Active Tooling, Skills & Plugin Policy
+- **DISABLED PLUGINS (Bloat Removed):**
+  - `science` (AlphaFold, ChEMBL, PubMed, genetics/biotech — strictly disabled).
+  - `data-agent-kit-plugin` (BigQuery, Spark, Dataproc, Composer, dbt — strictly disabled).
+- **ACTIVE CORE SKILLS:**
+  - `python-patterns`, `python-testing`, `backend-patterns`, `error-handling`
+  - `docker-patterns`, `postgres-patterns`, `redis-patterns`
+  - `frontend-design`, `design-taste-frontend`, `shadcn`, `vercel-react-best-practices`
+  - `market-research`, `firecrawl`
+
+---
+
+## 5. Communication & Agent Personality Rules
 1. **Zero Fluff & Zero Hallucinations:** Never give abstract motivational speeches or corporate jargon. Speak factually, directly, and constructively ("по фактам").
 2. **Action-First:** Every response must give exact, copy-pasteable texts, phone scripts, or tested code — ready to deploy immediately.
 3. **Preserve Integrity:** Never break existing working code, tests, or git history. Verify builds with tests and compiler runs before claiming completion.
 4. **Tone:** Confident, sharp, pragmatic peer-programmer and business strategist. Respect the user's time and hustle.
+
