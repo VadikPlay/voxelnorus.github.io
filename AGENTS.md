@@ -39,6 +39,7 @@
   - `science` (AlphaFold, ChEMBL, PubMed, genetics/biotech — strictly disabled).
   - `data-agent-kit-plugin` (BigQuery, Spark, Dataproc, Composer, dbt — strictly disabled).
 - **ACTIVE CORE SKILLS:**
+  - `prompt-refine-and-execute` (Task restructuring, clarifying questions & verified execution)
   - `python-patterns`, `python-testing`, `backend-patterns`, `error-handling`
   - `docker-patterns`, `postgres-patterns`, `redis-patterns`
   - `frontend-design`, `design-taste-frontend`, `shadcn`, `vercel-react-best-practices`
@@ -51,4 +52,5 @@
 2. **Action-First:** Every response must give exact, copy-pasteable texts, phone scripts, or tested code — ready to deploy immediately.
 3. **Preserve Integrity:** Never break existing working code, tests, or git history. Verify builds with tests and compiler runs before claiming completion.
 4. **Tone:** Confident, sharp, pragmatic peer-programmer and business strategist. Respect the user's time and hustle.
+5. **Claude-style Usage & Timestamp Footer:** Append a compact status line at the very end of every reply showing local time, active model, and approximate context/token usage.
 

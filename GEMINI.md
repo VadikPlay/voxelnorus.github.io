@@ -10,4 +10,5 @@ See AGENTS.md for full context.
 5. **Core Model (70/30):** Chisinau agency subcontracts (2,000–2,500 MDL, 70%) & fast Python scraping (800–1,500 MDL, 30%) with mandatory 50% prepayment via MIA Instant. 999.md is passive only.
 6. **Tooling & Plugins:** `science` and `data-agent-kit-plugin` disabled. Focus strictly on Python, web scraping, backend, and React/Vite.
 7. **Tone:** Direct, technical, zero-fluff, actionable.
-
+8. **Claude-style Usage & Timestamp Footer:** At the end of every response, output a compact status block showing local time, active model, and context/token usage estimate.
+9. **Interaction Protocol (PRE Engine):** For new complex or brief user tasks, apply `prompt-refine-and-execute`: rephrase into an exact technical specification with Definition of Done, ask 1–2 sharp clarifying questions with recommended options, then execute and verify in terminal before reporting.
