@@ -17,6 +17,30 @@ ai_chat.py
 test_api.py
 scan.py
 OrbitDev_Bot_Ready.py
+generate_catalog.py
+verify_catalog.py
+
+# Internal business context, leads & prompts (NEVER COMMIT TO PUBLIC REPO)
+AGENTS.md
+GEMINI.md
+ORBITDEV_LEAD_DATABASE_AND_SCRIPTS.md
+LEADS_DATABASE_AND_CLOSING_HANDBOOK.md
+website_generation_prompt.md
+hot_tenders_today.*
+clean_chatgpt_history.md
+chat_summary.txt
+chat_dialogue.txt
+extracted_chat.txt
+chatgpt_data.json
+chatgpt_share.html
+decode_chatgpt.py
+extract_chat.py
+parse_*.py
+reconstruct_*.py
+reconstructed_conversation.md
+lead_state_store.json
+OrbitDev_Backup_Drive.zip
+
 
 # Sub-projects and internal code
 subscription_bot/
